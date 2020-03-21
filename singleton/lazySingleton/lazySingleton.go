@@ -6,9 +6,6 @@ import (
 
 //LazySingleton 懒汉式单例模式
 type LazySingleton struct {
-	lr sync.RWMutex
-	l  sync.Mutex
-	c  int32
 }
 
 var instance *LazySingleton
