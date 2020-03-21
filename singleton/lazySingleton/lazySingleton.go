@@ -2,7 +2,6 @@ package lazysingleton
 
 import (
 	"sync"
-	"sync/atomic"
 )
 
 //LazySingleton 懒汉式单例模式
@@ -33,20 +32,4 @@ func GetInstance() *LazySingleton {
 	})
 
 	return instance
-}
-
-func (ls *LazySingleton) Add() {
-	atomic.AddInt32(&ls.c, 1)
-}
-
-func (ls *LazySingleton) AddWithRWMutex() {
-	ls.lr.RLock()
-	ls.c++
-	ls.lr.RUnlock()
-}
-
-func (ls *LazySingleton) AddWithMutex() {
-	ls.l.Lock()
-	ls.c++
-	ls.l.Unlock()
 }
