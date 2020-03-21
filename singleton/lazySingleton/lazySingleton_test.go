@@ -15,6 +15,8 @@ func TestGetInstance(t *testing.T) {
 		go func() {
 			instance := GetInstance()
 
+			instance.Add()
+
 			fmt.Println("%P", instance)
 
 			w.Done()

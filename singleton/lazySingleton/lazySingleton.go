@@ -2,10 +2,12 @@ package lazysingleton
 
 import (
 	"sync"
+	"sync/atomic"
 )
 
 //LazySingleton 懒汉式单例模式
 type LazySingleton struct {
+	c int32
 }
 
 var instance *LazySingleton
@@ -29,4 +31,8 @@ func GetInstance() *LazySingleton {
 	})
 
 	return instance
+}
+
+func (ls *LazySingleton) Add() {
+	atomic.AddInt32(&ls.c, 1)
 }
