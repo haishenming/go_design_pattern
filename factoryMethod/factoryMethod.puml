@@ -1,0 +1,30 @@
+@startuml
+
+
+package creator {
+abstract class Creator {
+	+ getFactoryMethod():Product
+	+ operation()
+}
+
+class Creator1 extends Creator {
+	+ getFactoryMethod():Product
+}
+}
+
+package factory {
+interface Factory {
+	+ Product()
+}
+
+class Factory1 implements Factory {
+	+ Product()
+}
+}
+
+Creator -> Factory
+
+Creator1 --* Factory1: create
+
+
+@enduml

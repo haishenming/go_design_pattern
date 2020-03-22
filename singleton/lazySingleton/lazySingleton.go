@@ -10,6 +10,11 @@ type LazySingleton struct {
 	c int32
 }
 
+//C C
+func (ls *LazySingleton) C() int32 {
+	return ls.c
+}
+
 var instance *LazySingleton
 var once sync.Once
 
@@ -33,6 +38,8 @@ func GetInstance() *LazySingleton {
 	return instance
 }
 
+//Add 加一
 func (ls *LazySingleton) Add() {
+
 	atomic.AddInt32(&ls.c, 1)
 }

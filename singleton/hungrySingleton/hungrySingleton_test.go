@@ -1,4 +1,4 @@
-package lazysingleton
+package hungrysingleton
 
 import (
 	"fmt"
@@ -9,20 +9,18 @@ import (
 func TestGetInstance(t *testing.T) {
 	goTimes := 10
 
-	w := sync.WaitGroup{}
+	wg := sync.WaitGroup{}
 	for i := 0; i < goTimes; i++ {
-		w.Add(1)
+		wg.Add(1)
 		go func() {
 			instance := GetInstance()
-
-			instance.Add()
-
+			instance.add()
 			fmt.Println(instance.C())
-
-			w.Done()
+			wg.Done()
 		}()
+
 	}
 
-	w.Wait()
+	wg.Wait()
 
 }
