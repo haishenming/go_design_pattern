@@ -1,0 +1,34 @@
+@startuml
+
+Interface AbstractFactory {
+	+ createProduct1(): void
+	+ createProduct2(): void
+}
+
+Interface AbstractProductA {
+	+ use(): void
+}
+
+class ConcreteFactory1 implements AbstractFactory {}
+class ConcreteFactory2 implements AbstractFactory {}
+
+
+
+class ProductA1 implements AbstractProductA {}
+class ProductA2 implements AbstractProductA {}
+
+ConcreteFactory1 --> ProductA1
+ConcreteFactory1 --> ProductB1
+
+Interface AbstractProductB {
+	+ eat(): void
+}
+
+class ProductB1 implements AbstractProductB {}
+class ProductB2 implements AbstractProductB {}
+
+ConcreteFactory2 --> ProductA1
+ConcreteFactory2 --> ProductA2
+
+
+@enduml
