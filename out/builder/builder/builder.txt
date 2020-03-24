@@ -1,0 +1,25 @@
+                 ,-------------------.             
+                 |Builder            |             
+                 |-------------------|             
+                 |-------------------|             
+                 |+buildPartA(): void|             
+                 |+buildPartB(): void|             
+                 |+buildPartC(): void|             
+                 |+getResult(): void |             
+                 `-------------------'             
+                                                   
+                                                   
+,--------------------------.  ,-------------------.
+|Director                  |  |ConcreteBuilder    |
+|--------------------------|  |-------------------|
+|-pbuilder: Builder *      |  |-------------------|
+|--------------------------|  |+buildPartA(): void|
+|+constuct(): Product *    |  |+buildPartB(): void|
+|+setBuilder(Builder*) void|  |+buildPartC(): void|
+`--------------------------'  `-------------------'
+                                         |         
+                                    ,-------.      
+                                    |Product|      
+                                    |-------|      
+                                    |-------|      
+                                    `-------'      

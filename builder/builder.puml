@@ -1,0 +1,30 @@
+@startuml
+
+class Director {
+	- pbuilder: Builder *
+	+ constuct(): Product *
+	+ setBuilder(Builder*) void
+}
+
+class Builder {
+	+ buildPartA(): void
+	+ buildPartB(): void
+	+ buildPartC(): void
+	+ getResult(): void
+}
+
+Builder --* Director
+
+class ConcreteBuilder extends Builder {
+	+ buildPartA(): void
+	+ buildPartB(): void
+	+ buildPartC(): void
+}
+
+class Product {
+	
+}
+
+ConcreteBuilder --> Product
+
+@enduml

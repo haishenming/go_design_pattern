@@ -1,0 +1,16 @@
+@startuml
+
+actor iMain
+collections Director
+collections ConcreteBuilder
+
+iMain -> ConcreteBuilder: 1.create
+iMain -> Director: 2.setBuilder
+iMain -> Director: 3.constuct
+Director -> ConcreteBuilder: buildPartA
+Director -> ConcreteBuilder: buildPartB
+Director -> ConcreteBuilder: buildPartC
+Director -> ConcreteBuilder: getResult
+
+
+@enduml
