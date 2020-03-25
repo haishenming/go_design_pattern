@@ -1,0 +1,20 @@
+@startuml
+
+class Prototype {
+	+ clone()
+}
+
+class ConcretePrototype extends Prototype {
+	+ clone()
+}
+
+class Client {
+	+ operation()
+}
+
+Client --> Prototype: clone()
+
+
+
+
+@enduml
